@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wsu.nova.homework_5_nsmith.controllers.GameEditController">
+    <VBox prefHeight="222.0" prefWidth="718.0">
+        <HBox prefHeight="38.0" prefWidth="578.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Game Title:" />
+            <TextField fx:id="EditGameTitleTextBox">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </TextField>
+        </HBox>
+        <HBox prefHeight="38.0" prefWidth="578.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Release Date:" />
+            <DatePicker fx:id="EditReleaseDatePicker">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </DatePicker>
+        </HBox>
+        <HBox prefHeight="38.0" prefWidth="578.0">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Platform:" />
+            <TextField fx:id="EditPlatformTextBox">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </TextField>
+        </HBox>
+        <HBox prefHeight="38.0" prefWidth="578.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher:" />
+            <TextField fx:id="EditPublisherTextBox">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </TextField>
+        </HBox>
+        <HBox prefHeight="38.0" prefWidth="578.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Developer:" />
+            <TextField fx:id="EditDeveloperTextBox">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+            </TextField>
+        </HBox>
+      <padding>
+         <Insets left="10.0" top="10.0" />
+      </padding>
+    </VBox>
+    <HBox alignment="CENTER" layoutX="18.0" layoutY="348.0" prefHeight="38.0" prefWidth="682.0" spacing="15.0">
+        <Button fx:id="ConfirmChangesButton" mnemonicParsing="false" text="Confirm Changes" onAction="#finalizeChanges" />
+        <Button fx:id="CancelChangesButton" mnemonicParsing="false" text="Cancel Changes" onAction="#cancelChangesAndReturn"/>
+    </HBox>
+</AnchorPane>
