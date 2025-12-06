@@ -97,5 +97,39 @@ public class VideoGamesDAO {
 
         return allGames;
     }
-}
 
+    public static void updateDB(VideoGame game) throws SQLException {
+        String updateGameSQL = """
+                UPDATE video_games
+                SET title = ?,
+                    release_date = ?,
+                    developers = ?,
+                    publishers = ?,
+                    consoles = ?
+                WHERE id = ?
+                """;
+
+        try (Connection dbConnection = DatabaseManager.getConnection();
+             PreparedStatement preparedStatement = dbConnection.prepareStatement(updateGameSQL)) {
+            preparedStatement.setString(1, game.getGameTitle());
+            preparedStatement.setDate(2, Date.valueOf(game.getReleaseDate().toLocalDate()));
+            preparedStatement.setString(3, String.join(", ", game.getDevelopers()));
+            preparedStatement.setString(4, String.join(", ", game.getPublishers()));
+            preparedStatement.setString(5, String.join(", ", game.getConsoles()));
+            preparedStatement.setInt(6, game.getGameID());
+            preparedStatement.executeUpdate();
+        }
+    }
+
+    public static void deleteGameFromDB(VideoGame game) throws SQLException{
+        String deleteGameSQL = """
+                DELETE FROM video_games
+                WHERE id = ?;
+                """;
+
+        try (Connection dbConnection = DatabaseManager.getConnection();
+             PreparedStatement preparedStatement = dbConnection.prepareStatement(deleteGameSQL)){
+            preparedStatement.setInt(1, game.getGameID());
+        }
+    }
+}

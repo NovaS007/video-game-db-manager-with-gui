@@ -8,9 +8,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static edu.wsu.nova.homework_5_nsmith.model.persistence.VideoGamesDAO.updateDB;
 import static edu.wsu.nova.homework_5_nsmith.ui.ControllerAlerts.confirmCancellationAlert;
 import static edu.wsu.nova.homework_5_nsmith.ui.ControllerAlerts.confirmEditAlert;
 
@@ -54,23 +56,22 @@ public class GameEditController {
         EditReleaseDatePicker.setValue(gameBeingEdited.getReleaseDate().toLocalDate());
     }
 
-    public VideoGame finalizeChanges() {
+    public void finalizeChanges() throws SQLException {
         if (confirmEditAlert()) {
             ArrayList<String> newDevelopers = new ArrayList<>(Arrays.asList(EditDeveloperTextBox.getText().split(", ")));
             ArrayList<String> newPublishers = new ArrayList<>(Arrays.asList(EditPublisherTextBox.getText().split(", ")));
             ArrayList<String> newPlatforms = new ArrayList<>(Arrays.asList(EditPlatformTextBox.getText().split(", ")));
 
-            return new VideoGame(gameBeingEdited.getGameID(),
+            VideoGame updatedGame = new VideoGame(gameBeingEdited.getGameID(),
                     EditGameTitleTextBox.getText(),
                     EditReleaseDatePicker.getValue(),
                     newDevelopers,
                     newPublishers,
                     newPlatforms
             );
-        }
 
-        else
-            return null;
+            updateDB(updatedGame);
+        }
     }
 
     @FXML
