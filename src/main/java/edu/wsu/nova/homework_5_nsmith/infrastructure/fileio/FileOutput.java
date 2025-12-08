@@ -1,11 +1,20 @@
 package edu.wsu.nova.homework_5_nsmith.infrastructure.fileio;
 
 import edu.wsu.nova.homework_5_nsmith.model.domain.VideoGame;
+
 import javafx.stage.FileChooser;
 
 import java.util.List;
 
+/**
+ * FileOutput class to handle saving video game data to a CSV file.
+ */
 public class FileOutput {
+    /**
+     * Saves the provided list of video games to a CSV file.
+     *
+     * @param videoGames List of VideoGame objects to be saved.
+     */
     public static void saveAsCSV(List<VideoGame> videoGames) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Video Games as CSV");

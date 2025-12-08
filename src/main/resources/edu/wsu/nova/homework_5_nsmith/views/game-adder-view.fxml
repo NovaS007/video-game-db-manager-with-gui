@@ -1,93 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="461.0"
-            prefWidth="718.0"
-            xmlns="http://javafx.com/javafx/17.0.12"
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.12"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="edu.wsu.nova.homework_5_nsmith.controllers.GameAdderController">
-    <VBox prefHeight="379.0"
-          prefWidth="718.0">
-        <HBox prefHeight="38.0"
-              prefWidth="578.0">
-            <Text strokeType="OUTSIDE"
-                  strokeWidth="0.0"
-                  text="Game Title:" />
-            <TextField fx:id="GameTitleTextBox">
-                <HBox.margin>
-                    <Insets left="20.0" />
-                </HBox.margin>
-            </TextField>
+
+    <!-- Main vertical layout -->
+    <VBox spacing="20.0"
+          AnchorPane.topAnchor="20.0"
+          AnchorPane.leftAnchor="20.0"
+          AnchorPane.rightAnchor="20.0"
+          AnchorPane.bottomAnchor="20.0">
+
+        <!-- Header -->
+        <Label text="Add New Game">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+
+        <!-- Form grid -->
+        <GridPane hgap="15.0" vgap="12.0">
+            <padding>
+                <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+            </padding>
+
+            <columnConstraints>
+                <!-- Label column -->
+                <ColumnConstraints prefWidth="120.0"/>
+                <!-- Input column -->
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+
+            <rowConstraints>
+                <RowConstraints minHeight="30.0"/>
+                <RowConstraints minHeight="30.0"/>
+                <RowConstraints minHeight="30.0"/>
+                <RowConstraints minHeight="30.0"/>
+                <RowConstraints minHeight="30.0"/>
+            </rowConstraints>
+
+            <!-- Game Title -->
+            <Label text="Game Title:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="GameTitleTextBox"
+                       promptText="Enter game title"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="1"/>
+
+            <!-- Release Date -->
+            <Label text="Release Date:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="ReleaseDatePicker"
+                        GridPane.rowIndex="1"
+                        GridPane.columnIndex="1"/>
+
+            <!-- Platform -->
+            <Label text="Platform:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="PlatformTextBox"
+                       promptText="e.g. Switch, PS5, PC"
+                       GridPane.rowIndex="2"
+                       GridPane.columnIndex="1"/>
+
+            <!-- Publisher -->
+            <Label text="Publisher:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="PublisherTextBox"
+                       promptText="Enter publisher"
+                       GridPane.rowIndex="3"
+                       GridPane.columnIndex="1"/>
+
+            <!-- Developer -->
+            <Label text="Developer:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextField fx:id="DeveloperTextBox"
+                       promptText="Enter developer"
+                       GridPane.rowIndex="4"
+                       GridPane.columnIndex="1"/>
+
+        </GridPane>
+
+        <!-- Buttons row -->
+        <HBox spacing="15.0" alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10.0"/>
+            </padding>
+
+            <Button fx:id="AddGameButton"
+                    mnemonicParsing="false"
+                    text="Add Video Game"
+                    onAction="#addGame"/>
+
+            <Button fx:id="SwitchToGameViewButton"
+                    mnemonicParsing="false"
+                    text="View Video Games"
+                    onAction="#switchToGameView"/>
         </HBox>
-        <HBox prefHeight="38.0"
-              prefWidth="578.0">
-            <Text strokeType="OUTSIDE"
-                  strokeWidth="0.0"
-                  text="Release Date:" />
-            <DatePicker fx:id="ReleaseDatePicker">
-                <HBox.margin>
-                    <Insets left="20.0" />
-                </HBox.margin>
-            </DatePicker>
-        </HBox>
-        <HBox prefHeight="38.0"
-              prefWidth="578.0">
-            <opaqueInsets>
-                <Insets />
-            </opaqueInsets>
-            <Text strokeType="OUTSIDE"
-                  strokeWidth="0.0"
-                  text="Platform:" />
-            <TextField fx:id="PlatformTextBox">
-                <HBox.margin>
-                    <Insets left="20.0" />
-                </HBox.margin>
-            </TextField>
-        </HBox>
-        <HBox prefHeight="38.0"
-              prefWidth="578.0">
-            <Text strokeType="OUTSIDE"
-                  strokeWidth="0.0"
-                  text="Publisher:" />
-            <TextField fx:id="PublisherTextBox">
-                <HBox.margin>
-                    <Insets left="20.0" />
-                </HBox.margin>
-            </TextField>
-        </HBox>
-        <HBox prefHeight="38.0"
-              prefWidth="578.0">
-            <Text strokeType="OUTSIDE"
-                  strokeWidth="0.0"
-                  text="Developer:" />
-            <TextField fx:id="DeveloperTextBox">
-                <HBox.margin>
-                    <Insets left="20.0" />
-                </HBox.margin>
-            </TextField>
-        </HBox>
-      <padding>
-         <Insets left="10.0"
-                 top="10.0" />
-      </padding>
     </VBox>
-    <HBox alignment="CENTER"
-          layoutX="18.0"
-          layoutY="409.0"
-          prefHeight="38.0"
-          prefWidth="682.0"
-          spacing="15.0">
-        <Button fx:id="AddGameButton"
-                mnemonicParsing="false"
-                text="Add Video game"
-                onAction="#addGame"/>
-        <Button fx:id="SwitchToGameViewButton"
-                mnemonicParsing="false"
-                text="View Video games"
-                onAction="#switchToGameView"/>
-    </HBox>
 </AnchorPane>

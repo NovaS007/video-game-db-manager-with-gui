@@ -14,7 +14,17 @@ import java.util.List;
 // Serves as a bridge between the application and the database.
 // Handles data operations such as retrieval, insertion, updating, and deletion
 // by converting between SQL rows and POJOs (model objects).
+/**
+ * Data Access Object (DAO) class for managing video game data in the database.
+ */
 public class VideoGamesDAO {
+    /**
+     * Retrieves all video games from the database.
+     * Uses multiple SQL queries to gather complete information for each game including;
+     * developers, publishers, and platforms.
+     *
+     * @return List of VideoGame objects representing all video games in the database.
+     */
     public static List<VideoGame> getAllVideoGamesFromDB() {
         String sqlGetAllGames = "SELECT id, title, release_date FROM video_games";
 
@@ -62,7 +72,7 @@ public class VideoGamesDAO {
                         new ArrayList<>()    // consoles
                 );
 
-                // ---- Load developers ----
+                // Load developers from the join table
                 getDevelopersStmt.setInt(1, gameId);
                 try (ResultSet devRs = getDevelopersStmt.executeQuery()) {
                     while (devRs.next()) {
@@ -70,7 +80,7 @@ public class VideoGamesDAO {
                     }
                 }
 
-                // ---- Load publishers ----
+                // Load publishers from the join table
                 getPublishersStmt.setInt(1, gameId);
                 try (ResultSet pubRs = getPublishersStmt.executeQuery()) {
                     while (pubRs.next()) {
@@ -78,7 +88,7 @@ public class VideoGamesDAO {
                     }
                 }
 
-                // ---- Load platforms/consoles ----
+                // Load platforms from the join table
                 getPlatformsStmt.setInt(1, gameId);
                 try (ResultSet platRs = getPlatformsStmt.executeQuery()) {
                     while (platRs.next()) {
@@ -98,6 +108,12 @@ public class VideoGamesDAO {
         return allGames;
     }
 
+    /**
+     * Updates an existing video game in the database.
+     *
+     * @param game VideoGame object containing updated information.
+     * @throws SQLException if a database access error occurs.
+     */
     public static void updateDB(VideoGame game) throws SQLException {
         String updateGameSQL = """
                 UPDATE video_games
@@ -121,6 +137,12 @@ public class VideoGamesDAO {
         }
     }
 
+    /**
+     * Deletes a video game from the database.
+     *
+     * @param game VideoGame object to be deleted.
+     * @throws SQLException if a database access error occurs.
+     */
     public static void deleteGameFromDB(VideoGame game) throws SQLException{
         String deleteGameSQL = """
                 DELETE FROM video_games
@@ -133,6 +155,12 @@ public class VideoGamesDAO {
         }
     }
 
+    /**
+     * Adds a new video game to the database.
+     *
+     * @param game VideoGame object to be added.
+     * @throws SQLException if a database access error occurs.
+     */
     public static void addGameToDB(VideoGame game) throws SQLException {
         String insertGameSQL = """
                 INSERT INTO video_games (title, release_date, developers, publishers, consoles)
@@ -148,5 +176,31 @@ public class VideoGamesDAO {
             preparedStatement.setString(5, String.join(", ", game.getConsoles()));
             preparedStatement.executeUpdate();
         }
+    }
+
+    /**
+     * Retrieves the next available game ID for a new video game.
+     *
+     * @return Next available game ID as an integer.
+     */
+    public static int getNextGameID() {
+        String sqlGetMaxID = "SELECT MAX(id) AS maximum_id FROM video_games";
+        int nextID = 1;
+
+        try (Connection dbConnection = DatabaseManager.getConnection();
+             PreparedStatement preparedStatement = dbConnection.prepareStatement(sqlGetMaxID);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            if (resultSet.next()) {
+                nextID = resultSet.getInt("id") + 1;
+            }
+
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nextID;
     }
 }

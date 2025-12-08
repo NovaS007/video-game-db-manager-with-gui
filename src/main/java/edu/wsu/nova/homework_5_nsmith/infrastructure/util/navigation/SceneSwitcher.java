@@ -1,4 +1,4 @@
-package edu.wsu.nova.homework_5_nsmith.infrastructure;
+package edu.wsu.nova.homework_5_nsmith.infrastructure.util.navigation;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,7 +9,14 @@ import javafx.stage.Window;
 
 import java.io.IOException;
 
+/** Utility class for switching scenes in a JavaFX application.
+ */
 public class SceneSwitcher {
+    /**
+     * Gets the currently active window.
+     *
+     * @return The current window, or null if none is active.
+     */
     public static Window getCurrentWindow() {
         return Stage.getWindows()
                 .stream()
@@ -18,6 +25,15 @@ public class SceneSwitcher {
                 .orElse(null);
     }
 
+    /**
+     * Switch scenes in the application.
+     *
+     * @param fxmlPath The path to the FXML file for the new scene.
+     * @param node     The UI node used to get the current stage.
+     * @param <T>      The type of the controller for the new scene.
+     * @return The controller for the new scene.
+     * @throws IOException If there is an error loading the FXML file.
+     */
     public <T> T switchScenes(String fxmlPath, Node node) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
