@@ -4,6 +4,7 @@ import edu.wsu.nova.homework_5_nsmith.model.domain.VideoGame;
 import edu.wsu.nova.homework_5_nsmith.infrastructure.SceneSwitcher;
 
 
+import edu.wsu.nova.homework_5_nsmith.model.persistence.VideoGamesDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -13,8 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static edu.wsu.nova.homework_5_nsmith.model.persistence.VideoGamesDAO.updateDB;
-import static edu.wsu.nova.homework_5_nsmith.ui.ControllerAlerts.confirmCancellationAlert;
-import static edu.wsu.nova.homework_5_nsmith.ui.ControllerAlerts.confirmEditAlert;
+import static edu.wsu.nova.homework_5_nsmith.ui.ControllerAlerts.*;
 
 
 public class GameEditController {
@@ -41,11 +41,17 @@ public class GameEditController {
 
     private VideoGame gameBeingEdited;
 
-    public void setGameBeingEdited(VideoGame gameBeingEdited) {
-        this.gameBeingEdited = gameBeingEdited;
+    public void initialize(){
     }
 
-    public void initialize(){
+    public void setGameBeingEdited(VideoGame gameBeingEdited) {
+        if (VideoGamesDAO.getAllVideoGamesFromDB().isEmpty()) {
+            noGamesInDBPopup();
+        }
+
+        else {
+            this.gameBeingEdited = gameBeingEdited;
+        }
     }
 
     public void setGameToEdit() {

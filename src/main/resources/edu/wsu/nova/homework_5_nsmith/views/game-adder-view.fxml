@@ -83,9 +83,11 @@
           spacing="15.0">
         <Button fx:id="AddGameButton"
                 mnemonicParsing="false"
-                text="Add Video game" />
+                text="Add Video game"
+                onAction="#addGame"/>
         <Button fx:id="SwitchToGameViewButton"
                 mnemonicParsing="false"
-                text="View Video games" />
+                text="View Video games"
+                onAction="#switchToGameView"/>
     </HBox>
 </AnchorPane>

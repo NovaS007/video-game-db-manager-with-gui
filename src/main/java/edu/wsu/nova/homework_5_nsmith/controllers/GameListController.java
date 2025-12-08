@@ -9,6 +9,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -29,6 +31,30 @@ public class GameListController {
 
     @FXML
     public Button DeleteGameButton;
+
+    @FXML
+    public TextField TitleToFilterByButton;
+
+    @FXML
+    public Text TitleDisplayText;
+
+    @FXML
+    public Text DateDisplayText;
+
+    @FXML
+    public Text DeveloperDisplayText;
+
+    @FXML
+    public Text PublisherDisplayText;
+
+    @FXML
+    public Text ConsoleDisplayText;
+
+    @FXML
+    public Button ExportCSVButton;
+
+    @FXML
+    public Button FilterButton;
 
     @FXML
     public void initialize() {

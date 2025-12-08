@@ -132,4 +132,21 @@ public class VideoGamesDAO {
             preparedStatement.setInt(1, game.getGameID());
         }
     }
+
+    public static void addGameToDB(VideoGame game) throws SQLException {
+        String insertGameSQL = """
+                INSERT INTO video_games (title, release_date, developers, publishers, consoles)
+                VALUES (?, ?, ?, ?, ?);
+                """;
+
+        try (Connection dbConnection = DatabaseManager.getConnection();
+             PreparedStatement preparedStatement = dbConnection.prepareStatement(insertGameSQL)) {
+            preparedStatement.setString(1, game.getGameTitle());
+            preparedStatement.setDate(2, Date.valueOf(game.getReleaseDate().toLocalDate()));
+            preparedStatement.setString(3, String.join(", ", game.getDevelopers()));
+            preparedStatement.setString(4, String.join(", ", game.getPublishers()));
+            preparedStatement.setString(5, String.join(", ", game.getConsoles()));
+            preparedStatement.executeUpdate();
+        }
+    }
 }

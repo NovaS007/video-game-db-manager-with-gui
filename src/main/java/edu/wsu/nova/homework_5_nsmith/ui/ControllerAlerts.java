@@ -44,6 +44,23 @@ public class ControllerAlerts {
         nullAlert.showAndWait();
     }
 
+    public static void noGamesInDBPopup() {
+        Alert nullAlert = new Alert(Alert.AlertType.ERROR);
+        nullAlert.setTitle("No video games in database!");
+        nullAlert.setHeaderText("There are no video games in the database!");
+        nullAlert.setContentText("There are no video games in the database. " +
+                "Please add a game before attempting to edit or delete.");
+        nullAlert.showAndWait();
+    }
+
+    public static void emptyFieldsAlert() {
+        Alert emptyFieldsAlert = new Alert(Alert.AlertType.ERROR);
+        emptyFieldsAlert.setTitle("Empty Fields Detected!");
+        emptyFieldsAlert.setHeaderText("One or more required fields are empty!");
+        emptyFieldsAlert.setContentText("Please ensure all required fields are filled out before continuing.");
+        emptyFieldsAlert.showAndWait();
+    }
+
     public static boolean confirmGameDeletion() {
         Alert confirmDelete = new Alert(Alert.AlertType.CONFIRMATION);
         confirmDelete.setTitle("Confirm Game Deletion.");
@@ -57,5 +74,13 @@ public class ControllerAlerts {
         Optional<ButtonType> result = confirmDelete.showAndWait();
 
         return result.isPresent() && result.get() == yes;
+    }
+
+    public static void gameAddedSuccessfullyAlert() {
+        Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+        successAlert.setTitle("Game Added Successfully!");
+        successAlert.setHeaderText("The video game was added to the database successfully!");
+        successAlert.setContentText("You may now add another game or return to the game list.");
+        successAlert.showAndWait();
     }
 }
