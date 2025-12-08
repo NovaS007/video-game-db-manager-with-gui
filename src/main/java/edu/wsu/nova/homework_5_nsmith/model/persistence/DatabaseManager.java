@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class DatabaseManager {
     private static final String URL = "jdbc:mysql://localhost:3306/video_game_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "XenobladeChronicles2020!";
+    private static final String PASSWORD = "root123";
 
     /**
      * Establishes and returns a connection to the database.
