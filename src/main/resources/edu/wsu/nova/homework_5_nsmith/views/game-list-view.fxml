@@ -16,10 +16,10 @@
 
 <AnchorPane prefHeight="744.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wsu.nova.homework_5_nsmith.controllers.GameListController">
     <HBox layoutX="15.0" layoutY="20.0" prefHeight="100.0" prefWidth="434.0">
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Title:"/>
-        <TextField fx:id="TitleToFilterByButton">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Title:" />
+        <TextField fx:id="TitleToFilterByText">
            <HBox.margin>
-               <Insets left="10.0"/>
+               <Insets left="10.0" />
            </HBox.margin>
         </TextField>
     </HBox>
@@ -71,7 +71,7 @@
          <Button fx:id="AddNewGameButton" mnemonicParsing="false" onAction="#switchToGameAdder" text="Add New Game" />
          <Button fx:id="EditGameButton" mnemonicParsing="false" onAction="#switchToEditor" text="Edit Selected Game" />
          <Button fx:id="DeleteGameButton" mnemonicParsing="false" onAction="#deleteSelectedGame" text="Delete Selected Game" />
-      <Button fx:id="ExportCSVButton" layoutX="119.0" layoutY="20.0" mnemonicParsing="false" text="Export Games as CSV" />
+         <Button fx:id="ExportCSVButton" layoutX="119.0" layoutY="20.0" mnemonicParsing="false" onAction="#exportGamesToCSV" text="Export Games as CSV" />
    </VBox>
-   <Button fx:id="FilterButton" layoutX="561.0" layoutY="47.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="125.0" text="Filter" />
+   <Button fx:id="FilterButton" layoutX="561.0" layoutY="47.0" mnemonicParsing="false" onAction="#filterGamesByTitle" prefHeight="47.0" prefWidth="125.0" text="Filter" />
 </AnchorPane>

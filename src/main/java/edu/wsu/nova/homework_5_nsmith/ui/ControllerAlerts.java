@@ -83,4 +83,12 @@ public class ControllerAlerts {
         successAlert.setContentText("You may now add another game or return to the game list.");
         successAlert.showAndWait();
     }
+
+    public static void noGamesMatchFilterAlert() {
+        Alert noMatchAlert = new Alert(Alert.AlertType.INFORMATION);
+        noMatchAlert.setTitle("No Games Match Filter!");
+        noMatchAlert.setHeaderText("No video games match the filter criteria!");
+        noMatchAlert.setContentText("Please adjust your filter criteria and try again.");
+        noMatchAlert.showAndWait();
+    }
 }

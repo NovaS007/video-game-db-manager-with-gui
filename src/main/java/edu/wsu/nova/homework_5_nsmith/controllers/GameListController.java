@@ -1,5 +1,6 @@
 package edu.wsu.nova.homework_5_nsmith.controllers;
 
+import edu.wsu.nova.homework_5_nsmith.infrastructure.fileio.FileOutput;
 import edu.wsu.nova.homework_5_nsmith.model.persistence.VideoGamesDAO;
 import edu.wsu.nova.homework_5_nsmith.model.domain.VideoGame;
 import edu.wsu.nova.homework_5_nsmith.infrastructure.SceneSwitcher;
@@ -33,9 +34,6 @@ public class GameListController {
     public Button DeleteGameButton;
 
     @FXML
-    public TextField TitleToFilterByButton;
-
-    @FXML
     public Text TitleDisplayText;
 
     @FXML
@@ -55,6 +53,9 @@ public class GameListController {
 
     @FXML
     public Button FilterButton;
+
+    @FXML
+    public TextField TitleToFilterByText;
 
     @FXML
     public void initialize() {
@@ -88,7 +89,7 @@ public class GameListController {
     }
 
     @FXML
-    public void switchToGameAdder() throws IOException{
+    public void switchToGameAdder() throws IOException {
         SceneSwitcher sceneSwitcher = new SceneSwitcher();
         sceneSwitcher.switchScenes("/edu/wsu/nova/homework_5_nsmith/views/game-adder-view.fxml",
                 AddNewGameButton);
@@ -98,7 +99,7 @@ public class GameListController {
     public void deleteSelectedGame() throws SQLException {
         VideoGame selectedGame = VideoGamePOJOList.getSelectionModel().getSelectedItem();
 
-        if (selectedGame == null){
+        if (selectedGame == null) {
             noSelectedGamePopup();
             return;
         }
@@ -108,5 +109,33 @@ public class GameListController {
         }
 
         initialize();
+    }
+
+    @FXML
+    public void filterGamesByTitle() {
+        String titleFilter = TitleToFilterByText.getText().toLowerCase();
+
+        ObservableList<VideoGame> filteredGames = FXCollections.observableArrayList();
+
+        for (VideoGame game : VideoGamesDAO.getAllVideoGamesFromDB()) {
+            if (game.getGameTitle().toLowerCase().contains(titleFilter)) {
+                filteredGames.add(game);
+            }
+        }
+
+        if (filteredGames.isEmpty()) {
+            ControllerAlerts.noGamesMatchFilterAlert();
+        } else if (titleFilter.isBlank()) {
+            VideoGamePOJOList.setItems(FXCollections.observableArrayList(
+                    VideoGamesDAO.getAllVideoGamesFromDB()
+            ));
+        } else {
+            VideoGamePOJOList.setItems(filteredGames);
+        }
+    }
+
+    @FXML
+    public void exportGamesToCSV() {
+        FileOutput.saveAsCSV(VideoGamesDAO.getAllVideoGamesFromDB());
     }
 }
