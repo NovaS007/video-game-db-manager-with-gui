@@ -1,20 +1,20 @@
 package edu.wsu.nova.homework_5_nsmith.model.domain;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-// Model (POJOs):
-// Represents video game information as plain old Java objects (POJOs).
-// Each object corresponds to a row in a table (e.g., VideoGame, Console, Publisher).
-// Does not directly talk to the database; it just holds data.
 /**
  * VideoGame class representing a video game POJO.
+ * <p>
+ * Model (POJOs):
+ * Represents video game information as plain old Java objects (POJOs).
+ * Each object corresponds to a row in a table (e.g., VideoGame, Console, Publisher).
+ * Does not directly talk to the database; it just holds data.
  */
 public class VideoGame {
     private int gameID;
     private String gameTitle;
-    private Date releaseDate;
+    private LocalDate releaseDate;
     private ArrayList<String> developers;
     private ArrayList<String> publishers;
     private ArrayList<String> consoles;
@@ -24,7 +24,7 @@ public class VideoGame {
      *
      * @param gameID      Unique identifier for the game. This is the primary key in the database.
      * @param gameTitle   Title of the game.
-     * @param releaseDate Release date of the game. Note: LocalDate is converted to SQL Date.
+     * @param releaseDate Release date of the game as a LocalDate.
      * @param developers  List of developers.
      * @param publishers  List of publishers.
      * @param consoles    List of consoles/platforms.
@@ -34,16 +34,17 @@ public class VideoGame {
                      LocalDate releaseDate,
                      ArrayList<String> developers,
                      ArrayList<String> publishers,
-                     ArrayList<String> consoles){
+                     ArrayList<String> consoles) {
         this.gameID = gameID;
         this.gameTitle = gameTitle;
-        this.releaseDate = Date.valueOf(releaseDate);
-        this.developers = developers;
-        this.publishers = publishers;
-        this.consoles = consoles;
+        this.releaseDate = releaseDate;  // store directly as LocalDate
+        this.developers = (developers != null) ? developers : new ArrayList<>();
+        this.publishers = (publishers != null) ? publishers : new ArrayList<>();
+        this.consoles = (consoles != null) ? consoles : new ArrayList<>();
     }
 
     // Getters and Setters
+
     /**
      * Gets the unique game ID.
      *
@@ -59,16 +60,17 @@ public class VideoGame {
      * @param gameID Unique identifier for the game.
      */
     public void setGameID(int gameID) {
-        if (gameID > 0)
+        if (gameID > 0) {
             this.gameID = gameID;
+        }
     }
 
     /**
-     * Gets the release date of the game.
+     * Gets the release date of the game as a LocalDate.
      *
      * @return releaseDate Release date of the game.
      */
-    public Date getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
@@ -77,9 +79,10 @@ public class VideoGame {
      *
      * @param releaseDate Release date of the game.
      */
-    public void setReleaseDate(Date releaseDate) {
-        if (releaseDate != null)
+    public void setReleaseDate(LocalDate releaseDate) {
+        if (releaseDate != null) {
             this.releaseDate = releaseDate;
+        }
     }
 
     /**
@@ -97,8 +100,9 @@ public class VideoGame {
      * @param gameTitle Title of the game.
      */
     public void setGameTitle(String gameTitle) {
-        if (!gameTitle.isEmpty())
+        if (gameTitle != null && !gameTitle.isEmpty()) {
             this.gameTitle = gameTitle;
+        }
     }
 
     /**
@@ -116,7 +120,7 @@ public class VideoGame {
      * @param developers List of developers.
      */
     public void setDevelopers(ArrayList<String> developers) {
-        if (developers != null){
+        if (developers != null) {
             this.developers = developers;
         }
     }
@@ -136,8 +140,9 @@ public class VideoGame {
      * @param publishers List of publishers.
      */
     public void setPublishers(ArrayList<String> publishers) {
-        if (publishers != null)
+        if (publishers != null) {
             this.publishers = publishers;
+        }
     }
 
     /**
@@ -155,8 +160,9 @@ public class VideoGame {
      * @param consoles List of consoles/platforms.
      */
     public void setConsoles(ArrayList<String> consoles) {
-        if(consoles != null)
+        if (consoles != null) {
             this.consoles = consoles;
+        }
     }
 
     /**
@@ -168,41 +174,19 @@ public class VideoGame {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(gameID)
-                .append(": ")
-                .append(gameTitle)
-                .append(", ")
-                .append(releaseDate)
-                .append("; ")
-                .append("Developed by: ");
-
-        for(String developer : developers){
-            if (developers.size()-1 != developers.indexOf(developer))
-                sb.append(developer)
-                    .append(", ");
-            else
-                sb.append(developer)
-                        .append(" ");
-        }
+          .append(": ")
+          .append(gameTitle)
+          .append(", ")
+          .append(releaseDate)
+          .append("; ")
+          .append("Developed by: ");
+        formatNames(sb, developers);
 
         sb.append("Published by: ");
-        for(String publisher : publishers){
-            if(publishers.size()-1 != publishers.indexOf(publisher))
-                sb.append(publisher)
-                    .append(", ");
-            else
-                sb.append(publisher)
-                        .append(" ");
-        }
+        formatNames(sb, publishers);
 
         sb.append("Playable on: ");
-        for(String console : consoles){
-            if(consoles.size()-1 != consoles.indexOf(console))
-                sb.append(console)
-                    .append(", ");
-            else
-                sb.append(console)
-                        .append(" ");
-        }
+        formatNames(sb, consoles);
 
         return sb.toString();
     }
@@ -214,5 +198,27 @@ public class VideoGame {
      */
     public String listViewString() {
         return gameID + ": " + gameTitle;
+    }
+
+    /**
+     * Helper method to format names from a list into a string.
+     *
+     * @param sb         StringBuilder to append to.
+     * @param names      List of names to format.
+     */
+    // Only used in toString() to make it cleaner.
+    private void formatNames(StringBuilder sb, ArrayList<String> names) {
+        if (names != null && !names.isEmpty()) {
+            for (int i = 0; i < names.size(); i++) {
+                sb.append(names.get(i));
+                if (i < names.size() - 1) {
+                    sb.append(", ");
+                } else {
+                    sb.append(" ");
+                }
+            }
+        } else {
+            sb.append("N/A ");
+        }
     }
 }

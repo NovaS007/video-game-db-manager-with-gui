@@ -1,9 +1,19 @@
-# This SQL script creates a database schema for managing information about video games,
-# including their developers, publishers, and platforms.
+# WARNING!!
+#=====================================================================================================================#
+# THIS SCRIPT WILL DELETE ALL DATA ENTRIES IN THE VIDEO_GAME_DATABASE AND RESET IT TO ITS INITIAL STATE!!
+# DO NOT RUN THIS SCRIPT UNLESS YOU ARE SURE YOU WANT TO LOSE ALL YOUR DATA!!
+# THIS SHOULD ONLY BE USED FOR TESTING OR DEVELOPMENT PURPOSES!!
+# DO NOT USE IN A PRODUCTION ENVIRONMENT UNLESS YOU FULLY UNDERSTAND THE CONSEQUENCES!!
+#=====================================================================================================================#
+# WARNING!!
 
-# The key word 'IF NOT EXISTS' is used to prevent errors if the schema or tables already exist.
+# Drop the existing schema and EVERYTHING in it
+DROP SCHEMA IF EXISTS video_game_db;
+
+# Recreate the schema
 CREATE SCHEMA IF NOT EXISTS video_game_db;
-#The key word 'USE' is used to select the database schema to work with.
+
+# Select the schema to work with
 USE video_game_db;
 
 #==============================================================================================================#

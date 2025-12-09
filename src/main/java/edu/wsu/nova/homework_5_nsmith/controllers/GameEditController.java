@@ -66,7 +66,7 @@ public class GameEditController {
         EditDeveloperTextBox.setText(String.join(", ", gameBeingEdited.getDevelopers()));
         EditPublisherTextBox.setText(String.join(", ", gameBeingEdited.getPublishers()));
         EditPlatformTextBox.setText(String.join(", ", gameBeingEdited.getConsoles()));
-        EditReleaseDatePicker.setValue(gameBeingEdited.getReleaseDate().toLocalDate());
+        EditReleaseDatePicker.setValue(gameBeingEdited.getReleaseDate());
     }
 
     /**
@@ -76,22 +76,36 @@ public class GameEditController {
      * @throws SQLException if a database access error occurs
      */
     @FXML
-    public void finalizeChanges() throws SQLException {
+    public void finalizeChanges() throws SQLException, IOException {
         if (confirmEditAlert()) {
             ArrayList<String> newDevelopers = new ArrayList<>(Arrays.asList(EditDeveloperTextBox.getText().split(", ")));
-            ArrayList<String> newPublishers = new ArrayList<>(Arrays.asList(EditPublisherTextBox.getText().split(", ")));
-            ArrayList<String> newPlatforms = new ArrayList<>(Arrays.asList(EditPlatformTextBox.getText().split(", ")));
-
-            VideoGame updatedGame = new VideoGame(gameBeingEdited.getGameID(),
-                    EditGameTitleTextBox.getText(),
-                    EditReleaseDatePicker.getValue(),
-                    newDevelopers,
-                    newPublishers,
-                    newPlatforms
-            );
+            VideoGame updatedGame = getGame(newDevelopers);
 
             updateDB(updatedGame);
+            SceneSwitcher sceneSwitcher = new SceneSwitcher();
+            sceneSwitcher.switchScenes(
+                    "/edu/wsu/nova/homework_5_nsmith/views/game-list-view.fxml",
+                    ConfirmChangesButton);
         }
+    }
+
+    /**
+     * Constructs a VideoGame object with updated information from the text boxes.
+     *
+     * @param newDevelopers List of new developers for the video game
+     * @return VideoGame object with updated information
+     */
+    private VideoGame getGame(ArrayList<String> newDevelopers) {
+        ArrayList<String> newPublishers = new ArrayList<>(Arrays.asList(EditPublisherTextBox.getText().split(", ")));
+        ArrayList<String> newPlatforms = new ArrayList<>(Arrays.asList(EditPlatformTextBox.getText().split(", ")));
+
+        return new VideoGame(gameBeingEdited.getGameID(),
+                EditGameTitleTextBox.getText(),
+                EditReleaseDatePicker.getValue(),
+                newDevelopers,
+                newPublishers,
+                newPlatforms
+        );
     }
 
     /**
@@ -109,16 +123,7 @@ public class GameEditController {
         }
     }
 
-    // Getter and Setter for gameBeingEdited with validation to ensure a game is selected and exists in the database
-    /**
-     * Gets the VideoGame instance currently being edited.
-     *
-     * @return the VideoGame being edited
-     */
-    public VideoGame getGameBeingEdited() {
-        return gameBeingEdited;
-    }
-
+    // Setter for gameBeingEdited
     /**
      * Sets the VideoGame instance to be edited.
      * If there are no games in the database, a popup alert is shown.

@@ -80,32 +80,32 @@ ALTER TABLE publishers AUTO_INCREMENT = 18;
 #==============================================================================================================#
 
 INSERT INTO platforms (id, name) VALUES
-    (1, 'Nintendo Switch'),
-    (2, 'PlayStation 5'),
-    (3, 'PlayStation 4'),
-    (4, 'Xbox Series X|S'),
-    (5, 'Xbox One'),
-    (6, 'PC'),
-    (7, 'Nintendo 3DS'),
-    (8, 'Wii U'),
-    (9, 'Nintendo Entertainment System'),
-    (10,'Super Nintendo Entertainment System'),
-    (11,'Nintendo 64'),
-    (12,'Nintendo GameCube'),
-    (13,'Wii'),
-    (14,'Game Boy'),
-    (15,'Game Boy Color'),
-    (16,'Game Boy Advance'),
-    (17,'Nintendo DS'),
-    (18,'PlayStation'),
-    (19,'PlayStation 2'),
-    (20,'PlayStation 3'),
-    (21,'Xbox 360'),
-    (22,'PlayStation Vita'),
-    (23,'PlayStation Portable');
+    (1,  'Nintendo Switch'),
+    (2,  'PlayStation 5'),
+    (3,  'PlayStation 4'),
+    (4,  'Xbox Series X|S'),
+    (5,  'Xbox One'),
+    (6,  'PC'),
+    (7,  'Nintendo 3DS'),
+    (8,  'Wii U'),
+    (9,  'Nintendo Entertainment System'),
+    (10, 'Super Nintendo Entertainment System'),
+    (11, 'Nintendo 64'),
+    (12, 'Nintendo GameCube'),
+    (13, 'Wii'),
+    (14, 'Game Boy'),
+    (15, 'Game Boy Color'),
+    (16, 'Game Boy Advance'),
+    (17, 'Nintendo DS'),
+    (18, 'PlayStation'),
+    (19, 'PlayStation 2'),
+    (20, 'PlayStation 3'),
+    (21, 'Xbox 360'),
+    (22, 'PlayStation Vita'),
+    (23, 'PlayStation Portable');
 
 # Reset AUTO_INCREMENT so that new entries continue from the correct ID
-ALTER TABLE publishers AUTO_INCREMENT = 24;
+ALTER TABLE platforms AUTO_INCREMENT = 24;
 
 #==============================================================================================================#
 # Video Games
@@ -212,10 +212,60 @@ INSERT INTO video_games (id, title, release_date) VALUES
     (97, 'Dark Souls III',                                                   '2016-03-24'),
     (98, 'Baldur''s Gate 3',                                                 '2023-08-03'),
     (99, 'Divinity: Original Sin 2',                                         '2017-09-14'),
-    (100,'Doom (2016)',                                                      '2016-05-13');
+    (100,'Doom (2016)',                                                      '2016-05-13'),
+    (101,'Xenoblade Chronicles X',                                           '2015-04-29'),
+    (102,'Xenoblade Chronicles',                                             '2010-06-10'),
+    (103,'Pikmin 3 Deluxe',                                                  '2020-10-30'),
+    (104,'Pikmin 4',                                                         '2023-07-21'),
+    (105,'Fire Emblem: Path of Radiance',                                    '2005-04-20'),
+    (106,'Fire Emblem: Radiant Dawn',                                        '2007-02-22'),
+    (107,'Pokémon Emerald',                                                  '2004-09-16'),
+    (108,'Pokémon Platinum',                                                 '2008-09-13'),
+    (109,'Pokémon Black',                                                    '2010-09-18'),
+    (110,'Pokémon White',                                                    '2010-09-18'),
+    (111,'Pokémon Black 2',                                                  '2012-06-23'),
+    (112,'Pokémon White 2',                                                  '2012-06-23'),
+    (113,'Pokémon HeartGold',                                                '2009-09-12'),
+    (114,'Pokémon SoulSilver',                                               '2009-09-12'),
+    (115,'Metroid Prime 2: Echoes',                                          '2004-11-15'),
+    (116,'Metroid Prime 3: Corruption',                                      '2007-08-27'),
+    (117,'The Legend of Zelda: Phantom Hourglass',                           '2007-06-23'),
+    (118,'The Legend of Zelda: Spirit Tracks',                               '2009-12-07'),
+    (119,'The Legend of Zelda: A Link Between Worlds',                       '2013-11-22'),
+    (120,'The Legend of Zelda: The Minish Cap',                              '2004-11-04'),
+    (121,'Super Mario 3D World',                                             '2013-11-21'),
+    (122,'Super Mario 3D World + Bowser''s Fury',                            '2021-02-12'),
+    (123,'New Super Mario Bros. Wii',                                        '2009-11-12'),
+    (124,'New Super Mario Bros. U',                                          '2012-11-18'),
+    (125,'New Super Mario Bros.',                                            '2006-05-15'),
+    (126,'Banjo-Kazooie',                                                    '1998-06-29'),
+    (127,'Banjo-Tooie',                                                      '2000-11-20'),
+    (128,'GoldenEye 007',                                                    '1997-08-25'),
+    (129,'Perfect Dark',                                                     '2000-05-22'),
+    (130,'Splatoon',                                                         '2015-05-28'),
+    (131,'Resident Evil 2 (2019)',                                           '2019-01-25'),
+    (132,'Resident Evil 4',                                                  '2005-01-11'),
+    (133,'Monster Hunter 4 Ultimate',                                        '2014-10-11'),
+    (134,'Monster Hunter 3 Ultimate',                                        '2013-03-19'),
+    (135,'Cyberpunk 2077',                                                   '2020-12-10'),
+    (136,'Fallout 4',                                                        '2015-11-10'),
+    (137,'Red Dead Redemption 2',                                            '2018-10-26'),
+    (138,'Doom Eternal',                                                     '2020-03-20'),
+    (139,'The Elder Scrolls IV: Oblivion',                                   '2006-03-20'),
+    (140,'The Elder Scrolls III: Morrowind',                                 '2002-05-01'),
+    (141,'Grand Theft Auto IV',                                              '2008-04-29'),
+    (142,'Dragon Quest VIII: Journey of the Cursed King',                    '2004-11-27'),
+    (143,'Dragon Quest IX: Sentinels of the Starry Skies',                   '2009-07-11'),
+    (144,'Kingdom Hearts II',                                                '2005-12-22'),
+    (145,'Final Fantasy X',                                                  '2001-07-19'),
+    (146,'Final Fantasy IX',                                                 '2000-07-07'),
+    (147,'Shin Megami Tensei III: Nocturne',                                 '2003-02-20'),
+    (148,'Persona 5',                                                        '2016-09-15'),
+    (149,'Persona 5 Strikers',                                               '2020-02-20'),
+    (150,'Tales of Arise',                                                   '2021-09-10');
 
 # Reset AUTO_INCREMENT so that new entries continue from the correct ID
-ALTER TABLE video_games AUTO_INCREMENT = 101;
+ALTER TABLE video_games AUTO_INCREMENT = 151;
 
 #==============================================================================================================#
 # Video Game ↔ Developer (many-to-many)
@@ -328,7 +378,57 @@ INSERT INTO video_game_developer (video_game_id, developer_id) VALUES
     (97, 4),   # Dark Souls III                                - FromSoftware
     (98, 32),  # Baldur's Gate 3                               - Larian Studios
     (99, 32),  # Divinity: Original Sin 2                      - Larian Studios
-    (100,36);  # Doom (2016)                                   - id Software
+    (100,36),  # Doom (2016)                                   - id Software
+    (101,1),   # Xenoblade Chronicles X                        - Monolith Soft
+    (102,1),   # Xenoblade Chronicles                          - Monolith Soft
+    (103,2),   # Pikmin 3 Deluxe                               - Nintendo EPD
+    (104,2),   # Pikmin 4                                      - Nintendo EPD
+    (105,6),   # Fire Emblem: Path of Radiance                 - Intelligent Systems
+    (106,6),   # Fire Emblem: Radiant Dawn                     - Intelligent Systems
+    (107,3),   # Pokémon Emerald                               - Game Freak
+    (108,3),   # Pokémon Platinum                              - Game Freak
+    (109,3),   # Pokémon Black                                 - Game Freak
+    (110,3),   # Pokémon White                                 - Game Freak
+    (111,3),   # Pokémon Black 2                               - Game Freak
+    (112,3),   # Pokémon White 2                               - Game Freak
+    (113,3),   # Pokémon HeartGold                             - Game Freak
+    (114,3),   # Pokémon SoulSilver                            - Game Freak
+    (115,25),  # Metroid Prime 2: Echoes                       - Retro Studios
+    (116,25),  # Metroid Prime 3: Corruption                   - Retro Studios
+    (117,27),  # Phantom Hourglass                             - Nintendo EAD
+    (118,27),  # Spirit Tracks                                 - Nintendo EAD
+    (119,27),  # A Link Between Worlds                         - Nintendo EAD
+    (120,10),  # The Minish Cap                                - Capcom
+    (121,27),  # Super Mario 3D World                          - Nintendo EAD
+    (122,2),   # Super Mario 3D World + Bowser's Fury          - Nintendo EPD
+    (123,27),  # New Super Mario Bros. Wii                     - Nintendo EAD
+    (124,27),  # New Super Mario Bros. U                       - Nintendo EAD
+    (125,27),  # New Super Mario Bros.                         - Nintendo EAD
+    (126,35),  # Banjo-Kazooie                                 - Rare
+    (127,35),  # Banjo-Tooie                                   - Rare
+    (128,35),  # GoldenEye 007                                 - Rare
+    (129,35),  # Perfect Dark                                  - Rare
+    (130,27),  # Splatoon                                      - Nintendo EAD
+    (131,10),  # Resident Evil 2 (2019)                        - Capcom
+    (132,10),  # Resident Evil 4                               - Capcom
+    (133,10),  # Monster Hunter 4 Ultimate                     - Capcom
+    (134,10),  # Monster Hunter 3 Ultimate                     - Capcom
+    (135,9),   # Cyberpunk 2077                                - CD Projekt Red
+    (136,33),  # Fallout 4                                     - Bethesda Game Studios
+    (137,34),  # Red Dead Redemption 2                         - Rockstar North
+    (138,36),  # Doom Eternal                                  - id Software
+    (139,33),  # TES IV: Oblivion                              - Bethesda Game Studios
+    (140,33),  # TES III: Morrowind                            - Bethesda Game Studios
+    (141,34),  # GTA IV                                        - Rockstar North
+    (142,28),  # DQ VIII                                       - Square
+    (143,5),   # DQ IX                                         - Square Enix CBU3
+    (144,28),  # Kingdom Hearts II                             - Square
+    (145,28),  # Final Fantasy X                               - Square
+    (146,28),  # Final Fantasy IX                              - Square
+    (147,8),   # SMT III: Nocturne                             - Atlus
+    (148,8),   # Persona 5                                     - Atlus
+    (149,8),   # Persona 5 Strikers                            - Atlus
+    (150,18);  # Tales of Arise                                - Bandai Namco Studios
 
 #==============================================================================================================#
 # Video Game ↔ Publisher (many-to-many)
@@ -434,8 +534,57 @@ INSERT INTO video_game_publisher (video_game_id, publisher_id) VALUES
     (97, 3),   # Dark Souls III                                 - Bandai Namco
     (98, 16),  # Baldur's Gate 3                                - Larian Studios
     (99, 16),  # Divinity: Original Sin 2                       - Larian Studios
-    (100, 14); # Doom (2016)                                    - Bethesda Softworks
-
+    (100,14),  # Doom (2016)                                    - Bethesda Softworks
+    (101,1),   # Xenoblade Chronicles X                         - Nintendo
+    (102,1),   # Xenoblade Chronicles                           - Nintendo
+    (103,1),   # Pikmin 3 Deluxe                                - Nintendo
+    (104,1),   # Pikmin 4                                       - Nintendo
+    (105,1),   # Fire Emblem: PoR                               - Nintendo
+    (106,1),   # Fire Emblem: RD                                - Nintendo
+    (107,1),   # Pokémon Emerald                                - Nintendo
+    (108,1),   # Pokémon Platinum                               - Nintendo
+    (109,1),   # Pokémon Black                                  - Nintendo
+    (110,1),   # Pokémon White                                  - Nintendo
+    (111,1),   # Pokémon Black 2                                - Nintendo
+    (112,1),   # Pokémon White 2                                - Nintendo
+    (113,1),   # Pokémon HeartGold                              - Nintendo
+    (114,1),   # Pokémon SoulSilver                             - Nintendo
+    (115,1),   # Metroid Prime 2                                - Nintendo
+    (116,1),   # Metroid Prime 3                                - Nintendo
+    (117,1),   # Phantom Hourglass                              - Nintendo
+    (118,1),   # Spirit Tracks                                  - Nintendo
+    (119,1),   # A Link Between Worlds                          - Nintendo
+    (120,1),   # The Minish Cap                                 - Nintendo
+    (121,1),   # Super Mario 3D World                           - Nintendo
+    (122,1),   # SM3DW + Bowser's Fury                          - Nintendo
+    (123,1),   # New Super Mario Bros. Wii                      - Nintendo
+    (124,1),   # New Super Mario Bros. U                        - Nintendo
+    (125,1),   # New Super Mario Bros.                          - Nintendo
+    (126,1),   # Banjo-Kazooie                                  - Nintendo
+    (127,1),   # Banjo-Tooie                                    - Nintendo
+    (128,1),   # GoldenEye 007                                  - Nintendo
+    (129,1),   # Perfect Dark                                   - Nintendo
+    (130,1),   # Splatoon                                       - Nintendo
+    (131,7),   # Resident Evil 2 (2019)                         - Capcom
+    (132,7),   # Resident Evil 4                                - Capcom
+    (133,7),   # Monster Hunter 4 Ultimate                      - Capcom
+    (134,7),   # Monster Hunter 3 Ultimate                      - Capcom
+    (135,9),   # Cyberpunk 2077                                 - CD PROJEKT
+    (136,14),  # Fallout 4                                      - Bethesda Softworks
+    (137,15),  # Red Dead Redemption 2                          - Rockstar Games
+    (138,14),  # Doom Eternal                                   - Bethesda Softworks
+    (139,14),  # TES IV: Oblivion                               - Bethesda Softworks
+    (140,14),  # TES III: Morrowind                             - Bethesda Softworks
+    (141,15),  # GTA IV                                         - Rockstar Games
+    (142,2),   # Dragon Quest VIII                              - Square Enix
+    (143,2),   # Dragon Quest IX                                - Square Enix
+    (144,2),   # Kingdom Hearts II                              - Square Enix
+    (145,2),   # Final Fantasy X                                - Square Enix
+    (146,2),   # Final Fantasy IX                               - Square Enix
+    (147,17),  # SMT III: Nocturne                              - Atlus
+    (148,17),  # Persona 5                                      - Atlus
+    (149,8),   # Persona 5 Strikers                             - SEGA
+    (150,3);   # Tales of Arise                                 - Bandai Namco
 
 #==============================================================================================================#
 # Video Game ↔ Platform (many-to-many)
@@ -630,9 +779,9 @@ INSERT INTO video_game_platform (video_game_id, platform_id) VALUES
     (51, 9),   # Super Mario Bros. 3    - NES
     (52, 10),  # Super Mario World      - SNES
     (53, 11),  # Super Mario 64         - N64
-    (53, 1) ,  # Super Mario 64         - Switch
+    (53, 1),   # Super Mario 64         - Switch
     (54, 12),  # Super Mario Sunshine   - GameCube
-    (54, 1) ,  # Super Mario Sunshine   - Switch
+    (54, 1),   # Super Mario Sunshine   - Switch
     (55, 13),  # Super Mario Galaxy     - Wii
     (55, 1),   # Super Mario Galaxy     - Switch
     (56, 13),  # Super Mario Galaxy 2   - Wii
@@ -747,4 +896,115 @@ INSERT INTO video_game_platform (video_game_id, platform_id) VALUES
     (100, 3),  # Doom (2016) - PS4
     (100, 5),  # Doom (2016) - Xbox One
     (100, 6),  # Doom (2016) - PC
-    (100, 1);  # Doom (2016) - Switch port
+    (100, 1),  # Doom (2016) - Switch port
+
+    # 101–104: Xenoblade X, XC, Pikmin 3 DX, Pikmin 4
+    (101, 8),  # Xenoblade Chronicles X - Wii U
+    (102, 13), # Xenoblade Chronicles   - Wii
+    (103, 1),  # Pikmin 3 Deluxe        - Switch
+    (104, 1),  # Pikmin 4               - Switch
+
+    # 105–114: FE GCN/Wii and Pokémon GBA/DS
+    (105, 12), # FE: Path of Radiance   - GameCube
+    (106, 13), # FE: Radiant Dawn       - Wii
+    (107, 16), # Pokémon Emerald        - GBA
+    (108, 17), # Pokémon Platinum       - DS
+    (109, 17), # Pokémon Black          - DS
+    (110, 17), # Pokémon White          - DS
+    (111, 17), # Pokémon Black 2        - DS
+    (112, 17), # Pokémon White 2        - DS
+    (113, 17), # Pokémon HeartGold      - DS
+    (114, 17), # Pokémon SoulSilver     - DS
+
+    # 115–120: Metroid Prime sequels & more Zelda
+    (115, 12), # Metroid Prime 2: Echoes        - GameCube
+    (116, 13), # Metroid Prime 3: Corruption    - Wii
+    (117, 17), # Phantom Hourglass              - DS
+    (118, 17), # Spirit Tracks                  - DS
+    (119, 7),  # A Link Between Worlds          - 3DS
+    (120, 16), # The Minish Cap                 - GBA
+
+    # 121–125: 3D World & NSMB line
+    (121, 8),  # Super Mario 3D World           - Wii U
+    (122, 1),  # SM3DW + Bowser's Fury          - Switch
+    (123, 13), # New Super Mario Bros. Wii      - Wii
+    (124, 8),  # New Super Mario Bros. U        - Wii U
+    (125, 17), # New Super Mario Bros.          - DS
+
+    # 126–130: Rare classics & Splatoon
+    (126, 11), # Banjo-Kazooie                  - N64
+    (127, 11), # Banjo-Tooie                    - N64
+    (128, 11), # GoldenEye 007                  - N64
+    (129, 11), # Perfect Dark                   - N64
+    (130, 8),  # Splatoon                       - Wii U
+
+    # 131–134: RE remakes & MH
+    (131, 3),  # Resident Evil 2 (2019) - PS4
+    (131, 5),  # Resident Evil 2 (2019) - Xbox One
+    (131, 6),  # Resident Evil 2 (2019) - PC
+
+    (132, 12), # Resident Evil 4         - GameCube
+    (132, 19), # Resident Evil 4         - PS2
+
+    (133, 7),  # Monster Hunter 4 Ultimate   - 3DS
+    (134, 7),  # Monster Hunter 3 Ultimate   - 3DS
+    (134, 8),  # Monster Hunter 3 Ultimate   - Wii U
+
+    # 135–138: Cyberpunk, Fallout 4, RDR2, Doom Eternal
+    (135, 6),  # Cyberpunk 2077 - PC
+    (135, 3),  # Cyberpunk 2077 - PS4
+    (135, 5),  # Cyberpunk 2077 - Xbox One
+    (135, 2),  # Cyberpunk 2077 - PS5
+    (135, 4),  # Cyberpunk 2077 - Xbox Series X|S
+
+    (136, 6),  # Fallout 4 - PC
+    (136, 3),  # Fallout 4 - PS4
+    (136, 5),  # Fallout 4 - Xbox One
+
+    (137, 3),  # RDR2 - PS4
+    (137, 5),  # RDR2 - Xbox One
+    (137, 6),  # RDR2 - PC
+
+    (138, 6),  # Doom Eternal - PC
+    (138, 3),  # Doom Eternal - PS4
+    (138, 5),  # Doom Eternal - Xbox One
+    (138, 1),  # Doom Eternal - Switch
+
+    # 139–141: Elder Scrolls & GTA IV
+    (139, 6),  # TES IV: Oblivion - PC
+    (139, 21), # TES IV: Oblivion - Xbox 360
+    (139, 20), # TES IV: Oblivion - PS3
+
+    (140, 6),  # TES III: Morrowind - PC
+
+    (141, 20), # GTA IV - PS3
+    (141, 21), # GTA IV - Xbox 360
+    (141, 6),  # GTA IV - PC
+
+    # 142–147: Dragon Quest & FF/SMT
+    (142, 19), # DQ VIII - PS2
+    (142, 7),  # DQ VIII - 3DS
+
+    (143, 17), # DQ IX - DS
+
+    (144, 19), # KH2 - PS2
+
+    (145, 19), # FFX - PS2
+
+    (146, 18), # FFIX - PlayStation
+
+    (147, 19), # SMT III: Nocturne - PS2
+
+    # 148–150: Persona 5 line & Tales of Arise
+    (148, 20), # Persona 5 - PS3
+    (148, 3),  # Persona 5 - PS4
+
+    (149, 1),  # P5 Strikers - Switch
+    (149, 3),  # P5 Strikers - PS4
+    (149, 6),  # P5 Strikers - PC
+
+    (150, 3),  # Tales of Arise - PS4
+    (150, 2),  # Tales of Arise - PS5
+    (150, 5),  # Tales of Arise - Xbox One
+    (150, 4),  # Tales of Arise - Xbox Series X|S
+    (150, 6);  # Tales of Arise - PC

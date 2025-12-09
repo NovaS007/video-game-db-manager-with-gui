@@ -91,6 +91,8 @@ public class GameAdderController {
 
             gameAddedSuccessfullyAlert();
             clearInputFields();
+
+
         }
 
         catch (SQLException e) {
