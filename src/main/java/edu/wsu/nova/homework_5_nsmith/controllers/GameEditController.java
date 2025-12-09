@@ -84,7 +84,7 @@ public class GameEditController {
             updateDB(updatedGame);
             SceneSwitcher sceneSwitcher = new SceneSwitcher();
             sceneSwitcher.switchScenes(
-                    "/edu/wsu/nova/homework_5_nsmith/views/game-list-view.fxml",
+                    "/edu/wsu/nova/homework_5_nsmith/views/fxml/game-list-view.fxml",
                     ConfirmChangesButton);
         }
     }
@@ -118,7 +118,7 @@ public class GameEditController {
         if (confirmCancellationAlert()) {
             SceneSwitcher sceneSwitcher = new SceneSwitcher();
             sceneSwitcher.switchScenes(
-                    "/edu/wsu/nova/homework_5_nsmith/views/game-list-view.fxml",
+                    "/edu/wsu/nova/homework_5_nsmith/views/fxml/game-list-view.fxml",
                     CancelChangesButton);
         }
     }

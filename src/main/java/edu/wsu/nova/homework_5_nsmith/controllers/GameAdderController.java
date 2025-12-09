@@ -109,7 +109,7 @@ public class GameAdderController {
     @FXML
     public void switchToGameView() throws IOException {
         SceneSwitcher sceneSwitcher = new SceneSwitcher();
-        sceneSwitcher.switchScenes("/edu/wsu/nova/homework_5_nsmith/views/game-list-view.fxml",
+        sceneSwitcher.switchScenes("/edu/wsu/nova/homework_5_nsmith/views/fxml/game-list-view.fxml",
                 SwitchToGameViewButton);
     }
 

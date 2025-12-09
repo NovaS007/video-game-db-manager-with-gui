@@ -113,7 +113,7 @@ public class GameListController {
 
         SceneSwitcher sceneSwitcher = new SceneSwitcher();
         GameEditController editController = sceneSwitcher.switchScenes(
-                "/edu/wsu/nova/homework_5_nsmith/views/game-edit-view.fxml",
+                "/edu/wsu/nova/homework_5_nsmith/views/fxml/game-edit-view.fxml",
                 EditGameButton
         );
 
@@ -127,7 +127,7 @@ public class GameListController {
     @FXML
     public void switchToGameAdder() throws IOException {
         SceneSwitcher sceneSwitcher = new SceneSwitcher();
-        sceneSwitcher.switchScenes("/edu/wsu/nova/homework_5_nsmith/views/game-adder-view.fxml",
+        sceneSwitcher.switchScenes("/edu/wsu/nova/homework_5_nsmith/views/fxml/game-adder-view.fxml",
                 AddNewGameButton);
     }
 

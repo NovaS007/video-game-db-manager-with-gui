@@ -15,14 +15,13 @@
 
 <?import java.net.URL?>
 
-<AnchorPane stylesheets="video-game-theme.css"
-            xmlns="http://javafx.com/javafx/17.0.12"
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.12"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="edu.wsu.nova.homework_5_nsmith.controllers.GameAdderController">
 
     <!-- Stylesheet -->
     <stylesheets>
-        <URL value = "@video-game-theme.css"/>
+        <URL value = "@../stylesheets/video-game-theme.css"/>
     </stylesheets>
 
     <!-- Main vertical layout -->

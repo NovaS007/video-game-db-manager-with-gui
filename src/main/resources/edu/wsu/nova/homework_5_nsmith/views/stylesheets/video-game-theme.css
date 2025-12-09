@@ -4,7 +4,7 @@
 
 .root {
     -fx-font-family: "SF Pro Text", "Segoe UI", "Roboto", "Sans-Serif";
-    -fx-background-color: #020617; /* slate-950 */
+    -fx-background-color: rgb(13, 23, 58); /* slate-950 */
     -fx-text-fill: #E5E7EB;        /* gray-200 */
 }
 

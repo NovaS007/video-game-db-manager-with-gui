@@ -16,14 +16,13 @@
 
 <?import java.net.URL?>
 
-<AnchorPane stylesheets="video-game-theme.css"
-            xmlns="http://javafx.com/javafx/25"
+<AnchorPane xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="edu.wsu.nova.homework_5_nsmith.controllers.GameListController">
 
     <!-- Stylesheet -->
     <stylesheets>
-        <URL value = "@video-game-theme.css"/>
+        <URL value = "@../stylesheets/video-game-theme.css"/>
     </stylesheets>
 
     <!-- Main vertical layout -->
@@ -87,29 +86,34 @@
                     <Label text="Game Title:" GridPane.rowIndex="0"/>
                     <Text fx:id="TitleDisplayText"
                           text="—"
+                          styleClass="detail-text"
                           GridPane.columnIndex="1"/>
 
                     <Label text="Release Date:" GridPane.rowIndex="1"/>
                     <Text fx:id="DateDisplayText"
                           text="—"
+                          styleClass="detail-text"
                           GridPane.columnIndex="1"
                           GridPane.rowIndex="1"/>
 
                     <Label text="Developer(s):" GridPane.rowIndex="2"/>
                     <Text fx:id="DeveloperDisplayText"
                           text="—"
+                          styleClass="detail-text"
                           GridPane.columnIndex="1"
                           GridPane.rowIndex="2"/>
 
                     <Label text="Publisher(s):" GridPane.rowIndex="3"/>
                     <Text fx:id="PublisherDisplayText"
                           text="—"
+                          styleClass="detail-text"
                           GridPane.columnIndex="1"
                           GridPane.rowIndex="3"/>
 
                     <Label text="Console(s):" GridPane.rowIndex="4"/>
                     <Text fx:id="ConsoleDisplayText"
                           text="—"
+                          styleClass="detail-text"
                           GridPane.columnIndex="1"
                           GridPane.rowIndex="4"/>
                 </GridPane>

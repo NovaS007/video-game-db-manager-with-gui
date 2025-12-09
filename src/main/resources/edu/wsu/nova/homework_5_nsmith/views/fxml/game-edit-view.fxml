@@ -21,7 +21,7 @@
 
     <!-- Stylesheet -->
     <stylesheets>
-        <URL value = "@video-game-theme.css"/>
+        <URL value = "@../stylesheets/video-game-theme.css"/>
     </stylesheets>
 
     <!-- Main container -->
