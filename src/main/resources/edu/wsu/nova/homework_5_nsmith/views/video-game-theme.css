@@ -34,7 +34,7 @@
 
 /* Default labels */
 .label {
-    -fx-text-fill: #E5E7EB;  /* gray-200 */
+    -fx-text-fill: #E5E8EB;  /* gray-200 */
     -fx-font-size: 13px;
     -fx-font-weight: 500;
 }
