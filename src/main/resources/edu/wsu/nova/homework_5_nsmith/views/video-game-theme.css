@@ -1,0 +1,255 @@
+/* =========================================
+   Global layout & base styling
+   ========================================= */
+
+.root {
+    -fx-font-family: "SF Pro Text", "Segoe UI", "Roboto", "Sans-Serif";
+    -fx-background-color: #020617; /* slate-950 */
+    -fx-text-fill: #E5E7EB;        /* gray-200 */
+}
+
+/* Let AnchorPane/VBox/HBox be transparent so the root colour shows */
+.anchor-pane,
+.vbox,
+.hbox {
+    -fx-background-color: transparent;
+}
+
+/* Main grid / detail panels */
+.grid-pane {
+    -fx-background-color: rgba(15, 23, 42, 0.95); /* slate-900 */
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: rgba(148, 163, 184, 0.35); /* gray-400 */
+    -fx-border-width: 1;
+    -fx-padding: 18;
+    -fx-hgap: 16;
+    -fx-vgap: 12;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.9), 18, 0.25, 0, 8);
+}
+
+/* =========================================
+   Typography
+   ========================================= */
+
+/* Default labels */
+.label {
+    -fx-text-fill: #E5E7EB;  /* gray-200 */
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+}
+
+/* Top-level headers: "Game Library", "Add New Game", etc. */
+.anchor-pane > .vbox > .label {
+    -fx-font-size: 26px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #F9FAFB;        /* near-white */
+    -fx-padding: 4 0 4 0;
+}
+
+/* Section labels like "Games", "Details" */
+.vbox > .label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+}
+
+/* Generic Text nodes (e.g., details on right panel) */
+.text {
+    -fx-fill: #F9FAFB;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+}
+
+/* Optional: stronger style if you add styleClass="detail-text" in FXML */
+.detail-text {
+    -fx-fill: #FFFFFF;
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+}
+
+/* =========================================
+   Buttons – minimal, pill-shaped, modern
+   ========================================= */
+
+.button {
+    -fx-background-color: #020617;
+    -fx-text-fill: #E5E7EB;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-padding: 7 18 7 18;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-border-color: rgba(56, 189, 248, 0.7); /* cyan-400 */
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.8), 10, 0.25, 0, 4);
+}
+
+/* Hover: slightly brighter, subtle glow */
+.button:hover {
+    -fx-background-color: #0F172A; /* slate-900 */
+    -fx-border-color: rgba(56, 189, 248, 1.0); /* cyan-400 */
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.65), 16, 0.45, 0, 5);
+}
+
+/* Pressed: flatter and nudged down a bit */
+.button:pressed {
+    -fx-background-color: #020617;
+    -fx-translate-y: 1;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.7), 6, 0.2, 0, 2);
+}
+
+/* Disabled */
+.button:disabled {
+    -fx-opacity: 0.45;
+    -fx-effect: none;
+}
+
+/* Default/primary action buttons (e.g. Add / Confirm) */
+.button:default {
+    -fx-background-color: #22C55E;                   /* green-500 */
+    -fx-border-color: rgba(34, 197, 94, 1.0);
+    -fx-text-fill: #022C22;
+    -fx-effect: dropshadow(gaussian, rgba(34, 197, 94, 0.6), 18, 0.5, 0, 5);
+}
+
+.button:default:hover {
+    -fx-background-color: #4ADE80;                   /* green-400 */
+}
+
+/* =========================================
+   Inputs: TextField, DatePicker
+   ========================================= */
+
+.text-field,
+.date-picker {
+    -fx-background-color: #020617;
+    -fx-text-fill: #F9FAFB;
+    -fx-prompt-text-fill: #9CA3AF;  /* gray-400 */
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-border-color: rgba(148, 163, 184, 0.7);  /* gray-400 */
+    -fx-border-width: 1;
+    -fx-padding: 7 14 7 14;
+    -fx-font-size: 13px;
+}
+
+/* Focus ring: thin cyan outline, light glow */
+.text-field:focused,
+.date-picker:focused {
+    -fx-border-color: rgba(56, 189, 248, 1.0); /* cyan-400 */
+    -fx-effect: dropshadow(gaussian, rgba(56, 189, 248, 0.55), 16, 0.5, 0, 4);
+}
+
+/* DatePicker arrow button */
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: rgba(15, 23, 42, 0.9);
+}
+
+.date-picker .arrow {
+    -fx-background-color: #38BDF8; /* cyan-400 */
+}
+
+/* DatePicker popup */
+.date-picker-popup {
+    -fx-background-color: #020617;
+    -fx-border-color: rgba(56, 189, 248, 0.6);
+    -fx-border-radius: 12;
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: #0B1120;
+    -fx-text-fill: #F9FAFB;
+}
+
+.date-picker-popup > .month-year-pane .label {
+    -fx-text-fill: #F9FAFB;
+}
+
+.date-picker-popup > * > .day-cell {
+    -fx-background-color: #020617;
+    -fx-text-fill: #E5E7EB;
+}
+
+.date-picker-popup > * > .day-cell:hover {
+    -fx-background-color: #0F172A;
+}
+
+.date-picker-popup > * > .day-cell:selected {
+    -fx-background-color: #38BDF8;
+    -fx-text-fill: #020617;
+}
+
+/* =========================================
+   ListView – game list
+   ========================================= */
+
+.list-view {
+    -fx-background-color: rgba(15, 23, 42, 0.95);   /* slate-900 */
+    -fx-control-inner-background: rgba(15, 23, 42, 0.95);
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: rgba(148, 163, 184, 0.3);
+    -fx-border-width: 1;
+    -fx-padding: 8;
+}
+
+/* Game entries */
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #E5E7EB;
+    -fx-padding: 6 10 6 10;
+    -fx-font-size: 13px;
+}
+
+.list-cell:hover {
+    -fx-background-color: rgba(30, 64, 175, 0.35); /* indigo-ish hover */
+}
+
+.list-cell:selected {
+    -fx-background-color: linear-gradient(to right, #38BDF8, #0EA5E9); /* cyan gradient */
+    -fx-text-fill: #020617;
+    -fx-font-weight: 600;
+}
+
+/* =========================================
+   Scrollbars
+   ========================================= */
+
+.scroll-bar:horizontal,
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: rgba(148, 163, 184, 0.65);  /* gray-400 */
+    -fx-background-radius: 999;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: rgba(148, 163, 184, 1.0);
+}
+
+/* =========================================
+   Layout niceties
+   ========================================= */
+
+/* Bottom bar where your action buttons live */
+.hbox[alignment="CENTER_RIGHT"] {
+    -fx-padding: 8 0 0 0;
+}
+
+/* Kill the default blue focus ring; we handle focus ourselves */
+:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}

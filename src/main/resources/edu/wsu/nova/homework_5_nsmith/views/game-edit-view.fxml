@@ -13,9 +13,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import java.net.URL?>
+
 <AnchorPane xmlns="http://javafx.com/javafx/17.0.12"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="edu.wsu.nova.homework_5_nsmith.controllers.GameEditController">
+
+    <!-- Stylesheet -->
+    <stylesheets>
+        <URL value = "@video-game-theme.css"/>
+    </stylesheets>
 
     <!-- Main container -->
     <VBox spacing="20.0"
